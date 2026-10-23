@@ -1,0 +1,9 @@
+{
+  "name": "drama-local-studio",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "scripts": {"build": "vite build", "test": "node --test tests/*.test.mjs"},
+  "dependencies": {"harper.js": "2.13.0"},
+  "devDependencies": {"vite": "7.1.3"}
+}

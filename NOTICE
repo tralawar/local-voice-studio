@@ -1,0 +1,13 @@
+audio.cpp
+Copyright 2026 ShugoAI LLC
+Licensed under the Apache License, Version 2.0. See LICENSE.
+
+Local Voice Studio modifications, October 2026:
+Independent local UI and SQLite service,
+offline writing checks, optional local dictation integration, setup scripts,
+tests and documentation. Native engine and model source are not included
+in this standalone source package.
+
+Built with Fish Audio.
+Fish Audio model weights are not part of this source distribution and use
+the separate Fish Audio Community License. See LICENSES.md.

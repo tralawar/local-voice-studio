@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.venv/
+__pycache__/
+data/
+data-*/
+models/
+*.log
+engine-config.local.json
+.native/
+.runtime/
+standalone.local.json
+candidate-dist/
+timer-fix-dist/

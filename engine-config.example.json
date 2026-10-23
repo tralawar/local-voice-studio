@@ -1,0 +1,16 @@
+{
+  "host": "127.0.0.1",
+  "port": 8080,
+  "backend": "cuda",
+  "threads": 8,
+  "lazy_load": true,
+  "max_loaded_models": 1,
+  "idle_unload_ms": 300000,
+  "ui": true,
+  "models": [{
+    "id": "drama-3", "family": "fish_drama3", "task": "tts", "mode": "streaming",
+    "path": "models/Drama-3-GGUF/drama-3-backbone-8bit-experts-Q4_K_S.gguf",
+    "session_options": {"fish_drama3.cpu_expert_layers": 8, "fish_drama3.context_length": 4096},
+    "default_request_options": {"max_tokens": 1500}
+  }]
+}
