@@ -1,0 +1,24 @@
+<!doctype html><meta charset="utf-8"><title>Synthetic dictation timer regression</title><pre id="result">pending</pre>
+<script type="module">
+import { DictationSession } from '/src/dictation.js';
+const result = { microphoneAccessed: false, syntheticTrack: true };
+const context = new AudioContext();
+const destination = context.createMediaStreamDestination();
+const oscillator = context.createOscillator(); oscillator.connect(destination); oscillator.start();
+const session = new DictationSession({
+  mediaDevices: { getUserMedia: async () => destination.stream },
+  Recorder: MediaRecorder, transcribe: async () => ({ text: 'synthetic', elapsed: 0 }),
+  onText() {}, onStatus: (message, active) => { result.lastStatus = message; result.recording = active; },
+  onError: error => { result.reportedError = error.message; }
+});
+try { await session.start(); result.started = true; }
+catch (error) { result.startError = error.message; }
+try { session.stop(); result.stopReturned = true; }
+catch (error) { result.stopError = error.message; }
+result.trackReleased = destination.stream.getTracks().every(track => track.readyState === 'ended');
+result.sessionReleased = session.stream === null;
+document.getElementById('result').textContent = JSON.stringify(result);
+await fetch('/__dictation_test_result', { method: 'POST', body: JSON.stringify(result) });
+// Defensive cleanup of the isolated synthetic track even against old code.
+destination.stream.getTracks().forEach(track => track.stop()); oscillator.stop(); context.close();
+</script>
