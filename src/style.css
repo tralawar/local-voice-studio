@@ -1,0 +1,5 @@
+@import url('./theme.css');
+
+.output-destination{grid-column:1/-1;border-top:1px solid var(--border,#343439);padding-top:16px;margin:16px 20px}.output-destination>label{margin:0;font-size:11px}.output-destination>p:first-of-type{overflow-wrap:anywhere;font-size:12px;font-weight:600;margin:8px 0}.folder-actions{display:flex;flex-wrap:wrap;gap:8px}.folder-actions button{padding:8px 10px;font-size:11px}.output-destination .hint{margin-bottom:0}.take-exports{margin:12px 0;padding:12px;border:1px solid var(--border,#343439);border-radius:10px;overflow-wrap:anywhere}.take-exports p{margin:0 0 10px}.take-exports button{margin:0 8px 6px 0}.export-error{color:#ffb8ac;font-size:12px;line-height:1.6}
+
+@media(max-width:1050px) and (min-width:501px){.voice-card>.output-destination{grid-row:6;grid-column:1/-1}.voice-card>button#generate{grid-row:7;grid-column:1/-1}.voice-card>button#cancel{grid-row:8;grid-column:1/-1}.voice-card>#generation-status{grid-row:9;grid-column:1/-1}}
